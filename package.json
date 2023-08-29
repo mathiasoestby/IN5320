@@ -1,0 +1,23 @@
+{
+  "name": "in5320",
+  "version": "1.0.0",
+  "description": "My work in the subject \"IN5320: Development in Platform Ecosystems\" at the University of Oslo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "yarn": "./node_modules/.bin/yarn"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathiasoestby/IN5320.git"
+  },
+  "author": "Mathias Østby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mathiasoestby/IN5320/issues"
+  },
+  "homepage": "https://github.com/mathiasoestby/IN5320#readme",
+  "dependencies": {
+    "yarn": "^1.22.19"
+  }
+}
