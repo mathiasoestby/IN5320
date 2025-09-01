@@ -1,0 +1,33 @@
+
+.background_tiles {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    display: grid;
+    grid-template: 1fr 2fr / 2fr 1fr;
+    z-index: -1;
+}
+
+.tile_pink {
+    background-color: rgb(209, 138, 150);
+}
+
+.tile_black {
+    background-color: rgb(247, 148, 148);
+}
+
+
+header {
+    background-color: whitesmoke;
+    margin: 2rem 2rem 0rem 2rem;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+section {
+    background-color: whitesmoke;
+    margin: 0rem 2rem 2rem 2rem;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+}
+
