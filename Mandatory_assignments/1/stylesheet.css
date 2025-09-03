@@ -1,3 +1,13 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(0.8rem, 2.5vw, 2rem);
+}
+
+h2 {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+
 .background_tiles {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
@@ -37,7 +47,6 @@
     grid-row: 4 / span 2;
 }
 
-
 header {
     background-color: whitesmoke;
     margin: 2rem 2rem 0rem 2rem;
@@ -46,17 +55,46 @@ header {
     border-radius: 10px 10px 0 0;
 }
 
-.profilepicture {
+.profile-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.profile-picture {
     width: 50%;
     height: auto;
+    max-width: 20rem;
     border-radius: 10%;
+}
+
+@media  (min-width: 1024px) {
+  .profile-box {
+    flex-direction: row;
+    text-align: right;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
 }
 
 nav {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.8rem);
+    margin-top: 1rem;
 
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
 }
 
 nav a {
@@ -67,6 +105,7 @@ nav a {
     border-width: 2px;
     border-color: rgb(255, 88, 116);
     padding: 0.5rem 1rem;
+    min-width: 5rem;
 }
 
 section {
