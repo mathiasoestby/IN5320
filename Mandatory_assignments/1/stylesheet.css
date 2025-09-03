@@ -8,6 +8,7 @@
     z-index: -1;
 }
 
+
 .tile_pink {
     background-color: rgb(255, 88, 116);
 }
@@ -45,10 +46,33 @@ header {
     border-radius: 10px 10px 0 0;
 }
 
+.profilepicture {
+    width: 50%;
+    height: auto;
+    border-radius: 10%;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(116, 75, 75);
+    font-weight: bold;
+    border-style: dotted;
+    border-width: 2px;
+    border-color: rgb(255, 88, 116);
+    padding: 0.5rem 1rem;
+}
+
 section {
     background-color: whitesmoke;
     margin: 0rem 2rem 2rem 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 0 0 10px 10px;
 }
 
