@@ -17,6 +17,7 @@ function App() {
     const [searchQuery, setSearchQuery] = useState(); // Default = No search query
     const [pageNumber, setPageNumber] = useState(1); //Default = Page 1
     const [pageSize, setPageSize] = useState(10); //Default = size of 10
+    const [sortBy, setSortBy] = useState("Country:ASC") //Default = sort by country ascending
 
     useEffect(() => {
         // All parameters are appended to this URL.
@@ -25,6 +26,10 @@ function App() {
         // If searchQuery isn't empty add &search=searchQuery to the API request.
         if (searchQuery) {
             apiQuery = apiQuery + "&search=" + searchQuery;
+        }
+
+        if (sortBy) {
+            apiQuery = apiQuery + "&order=" + sortBy;
         }
 
         // Add what page we are requesting to the API request.
@@ -38,7 +43,7 @@ function App() {
                 // Then add response to state.
                 setApiData(data);
             });
-    }, [searchQuery, pageNumber, pageSize]); // Array containing which state changes that should re-reun useEffect()
+    }, [searchQuery, sortBy, pageNumber, pageSize]); // Array containing which state changes that should re-reun useEffect()
 
     return (
         <div className="App">
@@ -47,7 +52,7 @@ function App() {
                 setSearchQuery={setSearchQuery}
                 setPageNumber={setPageNumber}
             />
-            <Table apiData={apiData} />
+            <Table apiData={apiData} sortBy={sortBy} setSortBy={setSortBy} />
             <PageSize currentSize={pageSize} setPageSize={setPageSize}/>
             <Pagination
                 currentPage={pageNumber}
