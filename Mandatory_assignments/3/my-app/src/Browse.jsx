@@ -9,7 +9,7 @@ import {
     TableCellHead,
     TableHead,
     TableRow,
-    TableRowHead
+    TableRowHead,
 } from "@dhis2/ui";
 
 const dataQuery = {
@@ -52,36 +52,48 @@ function mergeData(data) {
 export function Browse() {
     const { loading, error, data } = useDataQuery(dataQuery);
     if (error) {
-        return <NoticeBox error title="Error during data query!">Error: </NoticeBox>;
+        return (
+            <NoticeBox error title="Something went wrong">
+                We couldn't load the datasets. Please try again later.
+                <details>
+                    <summary>Technical details</summary>
+                    <pre>{error.message}</pre>
+                </details>
+            </NoticeBox>
+        );
     }
 
     if (loading) {
         return <CircularLoader aria-label="Default Loader" large />;
     }
-    
+
     if (data) {
         let mergedData = mergeData(data);
         console.log(mergedData);
 
         return (
-          <Table>
-            <TableHead>
-              <TableRowHead>
-                <TableCellHead>Category</TableCellHead>
-                <TableCellHead>Value</TableCellHead>
-                <TableCellHead>Id</TableCellHead>
-              </TableRowHead>
-            </TableHead>
-            <TableBody>
-              {mergedData.map(d => (
-                <TableRow key={d.id}>
-                  <TableCell>{d.displayName}</TableCell>
-                  <TableCell>{d.value}</TableCell>
-                  <TableCell>{d.id}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+            <Table>
+                <TableHead>
+                    <TableRowHead>
+                        <TableCellHead>Category</TableCellHead>
+                        <TableCellHead>Value</TableCellHead>
+                        <TableCellHead>Id</TableCellHead>
+                    </TableRowHead>
+                </TableHead>
+                <TableBody>
+                    {mergedData
+                        .sort((a, b) =>
+                            a.displayName > b.displayName ? 1 : -1
+                        )
+                        .map((d) => (
+                            <TableRow key={d.id}>
+                                <TableCell>{d.displayName}</TableCell>
+                                <TableCell>{d.value}</TableCell>
+                                <TableCell>{d.id}</TableCell>
+                            </TableRow>
+                        ))}
+                </TableBody>
+            </Table>
         );
     }
 }
